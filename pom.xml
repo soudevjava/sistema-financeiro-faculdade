@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.api</groupId>
-	<artifactId>financeiro</artifactId>
+	<artifactId>projeto-faculdade</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>financeiro</name>
 	<description>microsserviço-financeiro</description>
