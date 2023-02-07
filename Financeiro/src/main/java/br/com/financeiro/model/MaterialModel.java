@@ -1,6 +1,6 @@
 package br.com.financeiro.model;
 
 
-public class PagamentoModel {
+public class MaterialModel {
 
 }
