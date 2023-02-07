@@ -60,4 +60,9 @@ public class DespesasEntity implements Serializable {
     public void setTipo(DespesasTiposEnum tipo) {
         this.tipo = tipo;
     }
+
+    @Override
+    public String toString() {
+        return "DespesasEntity{" + "id=" + id + ", valor=" + valor + ", data=" + data + ", tipo=" + tipo + '}';
+    }
 }
