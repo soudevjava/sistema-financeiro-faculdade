@@ -31,10 +31,12 @@ public class DespesasService {
         return this.despesasRepository.findById(id);
     }
 
+    @Transactional
     public Object save(DespesasEntity despesasEntity) {
         return this.despesasRepository.save(despesasEntity);
     }
 
+    @Transactional
     public void remove(DespesasEntity despesasEntity) {
         this.despesasRepository.delete(despesasEntity);
     }
