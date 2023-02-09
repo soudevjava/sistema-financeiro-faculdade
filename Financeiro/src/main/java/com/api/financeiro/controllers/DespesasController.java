@@ -4,7 +4,6 @@ import com.api.financeiro.dtos.DespesasDto;
 import com.api.financeiro.dtos.ResponseGeneralDto;
 import com.api.financeiro.entities.DespesasEntity;
 import com.api.financeiro.services.DespesasService;
-import com.api.financeiro.utils.UtilDate;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -27,8 +25,6 @@ import static com.api.financeiro.enums.GeneralMessages.*;
 @CrossOrigin(value = "*", maxAge = 3600)
 @RequestMapping("/financeiro/despesa")
 public class DespesasController {
-
-    private final UtilDate utilDate = new UtilDate();
 
     @Autowired
     private DespesasService despesasService;
