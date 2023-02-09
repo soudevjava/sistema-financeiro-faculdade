@@ -1,5 +1,6 @@
 package com.api.financeiro.configs;
 
+import com.api.financeiro.utils.UtilDate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
@@ -11,8 +12,8 @@ import java.time.format.DateTimeFormatter;
 
 @Configuration
 public class DataConfig {
-    public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-    public static LocalDateTimeSerializer LOCAL_DATETIME_SERIALIZER = new LocalDateTimeSerializer(DateTimeFormatter.ofPattern(DATETIME_FORMAT));
+    UtilDate utilDate = new UtilDate();
+    public final LocalDateTimeSerializer LOCAL_DATETIME_SERIALIZER = new LocalDateTimeSerializer(DateTimeFormatter.ofPattern(this.utilDate.getPatternFormat()));
 
     @Bean
     @Primary

@@ -4,6 +4,7 @@ import com.api.financeiro.dtos.DespesasDto;
 import com.api.financeiro.dtos.ResponseGeneralDto;
 import com.api.financeiro.entities.DespesasEntity;
 import com.api.financeiro.services.DespesasService;
+import com.api.financeiro.utils.UtilDate;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +28,10 @@ import static com.api.financeiro.enums.GeneralMessages.*;
 @RequestMapping("/financeiro/despesa")
 public class DespesasController {
 
+    private final UtilDate utilDate = new UtilDate();
+
     @Autowired
     private DespesasService despesasService;
-
-    private static DespesasEntity setDespesaEntity(DespesasDto despesasDto) {
-        var despesasEntity = new DespesasEntity();
-        BeanUtils.copyProperties(despesasDto, despesasEntity);
-        despesasEntity.setData(LocalDateTime.now(ZoneId.of("UTC")));
-        return despesasEntity;
-    }
 
     private static ResponseGeneralDto responseGeneralDto(HttpStatus status, String message) {
         ResponseGeneralDto response = new ResponseGeneralDto();
@@ -52,6 +48,13 @@ public class DespesasController {
         despEntity.setTipo(despesasEntity.getTipo());
         despEntity.setValor(despesasEntity.getValor());
         return despEntity;
+    }
+
+    private DespesasEntity setDespesaEntity(DespesasDto despesasDto) {
+        var despesasEntity = new DespesasEntity();
+        BeanUtils.copyProperties(despesasDto, despesasEntity);
+        despesasEntity.setData(LocalDateTime.now());
+        return despesasEntity;
     }
 
     @PostMapping("/nova")
